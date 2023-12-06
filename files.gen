@@ -34,7 +34,6 @@ src/apitizing_burgers/models/errors/__init__.py
 src/apitizing_burgers/models/operations/__init__.py
 src/apitizing_burgers/models/components/__init__.py
 src/apitizing_burgers/models/webhooks/__init__.py
-USAGE.md
 docs/models/operations/listburgersresponse.md
 docs/models/operations/createburgerresponse.md
 docs/models/operations/deleteburgerrequest.md
@@ -66,4 +65,5 @@ docs/sdks/apitizingburgers/README.md
 docs/models/utils/retryconfig.md
 docs/sdks/burger/README.md
 docs/sdks/order/README.md
+USAGE.md
 .gitattributes
