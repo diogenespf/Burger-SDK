@@ -11,9 +11,9 @@ Burger external docs
 
 * [list_burgers](#list_burgers) - List Burgers
 * [create_burger](#create_burger) - Create Burger
-* [delete_burger](#delete_burger) - Delete Burger
 * [read_burger](#read_burger) - Read Burger
 * [update_burger](#update_burger) - Update Burger
+* [delete_burger](#delete_burger) - Delete Burger
 
 ## list_burgers
 
@@ -92,45 +92,6 @@ if res.burger_output is not None:
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 400-600                    | */*                        |
 
-## delete_burger
-
-Delete a burger
-
-### Example Usage
-
-```python
-import apitizing_burgers
-from apitizing_burgers.models import operations
-
-s = apitizing_burgers.APItizingBurgers()
-
-
-res = s.burger.delete_burger(burger_id=199926)
-
-if res.response_message is not None:
-    # handle response
-    pass
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `burger_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-
-### Response
-
-**[operations.DeleteBurgerResponse](../../models/operations/deleteburgerresponse.md)**
-### Errors
-
-| Error Object               | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ResponseMessage     | 404                        | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 400-600                    | */*                        |
-
 ## read_burger
 
 Read a burger
@@ -205,6 +166,45 @@ if res.burger_output is not None:
 ### Response
 
 **[operations.UpdateBurgerResponse](../../models/operations/updateburgerresponse.md)**
+### Errors
+
+| Error Object               | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ResponseMessage     | 404                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 400-600                    | */*                        |
+
+## delete_burger
+
+Delete a burger
+
+### Example Usage
+
+```python
+import apitizing_burgers
+from apitizing_burgers.models import operations
+
+s = apitizing_burgers.APItizingBurgers()
+
+
+res = s.burger.delete_burger(burger_id=199926)
+
+if res.response_message is not None:
+    # handle response
+    pass
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `burger_id`                                                         | *int*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+
+### Response
+
+**[operations.DeleteBurgerResponse](../../models/operations/deleteburgerresponse.md)**
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |

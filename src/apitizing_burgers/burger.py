@@ -68,7 +68,7 @@ class Burger:
         
         url = base_url + '/burger/'
         headers = {}
-        req_content_type, data, form = utils.serialize_request_body(request, "request", False, False, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, components.BurgerCreate, "request", False, False, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
@@ -100,68 +100,6 @@ class Burger:
             if utils.match_content_type(content_type, 'application/json'):
                 out = utils.unmarshal_json(http_res.text, Optional[components.BurgerOutput])
                 res.burger_output = out
-            else:
-                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
-        elif http_res.status_code == 422:
-            if utils.match_content_type(content_type, 'application/json'):
-                out = utils.unmarshal_json(http_res.text, errors.HTTPValidationError)
-                out.raw_response = http_res
-                raise out
-            else:
-                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
-        elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
-            raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
-
-        return res
-
-    
-    
-    def delete_burger(self, burger_id: int, retries: Optional[utils.RetryConfig] = None) -> operations.DeleteBurgerResponse:
-        r"""Delete Burger
-        Delete a burger
-        """
-        request = operations.DeleteBurgerRequest(
-            burger_id=burger_id,
-        )
-        
-        base_url = utils.template_url(*self.sdk_configuration.get_server_details())
-        
-        url = utils.generate_url(operations.DeleteBurgerRequest, base_url, '/burger/{burger_id}', request)
-        headers = {}
-        headers['Accept'] = 'application/json'
-        headers['user-agent'] = self.sdk_configuration.user_agent
-        
-        client = self.sdk_configuration.client
-        
-        global_retry_config = self.sdk_configuration.retry_config
-        retry_config = retries
-        if retry_config is None:
-            if global_retry_config:
-                retry_config = global_retry_config
-            else:
-                retry_config = utils.RetryConfig('backoff', utils.BackoffStrategy(500, 60000, 1.5, 3600000), True)
-
-        def do_request():
-            return client.request('DELETE', url, headers=headers)
-
-        http_res = utils.retry(do_request, utils.Retries(retry_config, [
-            '5XX'
-        ]))
-        content_type = http_res.headers.get('Content-Type')
-        
-        res = operations.DeleteBurgerResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
-        
-        if http_res.status_code == 200:
-            if utils.match_content_type(content_type, 'application/json'):
-                out = utils.unmarshal_json(http_res.text, Optional[errors.ResponseMessage])
-                res.response_message = out
-            else:
-                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
-        elif http_res.status_code == 404:
-            if utils.match_content_type(content_type, 'application/json'):
-                out = utils.unmarshal_json(http_res.text, errors.ResponseMessage)
-                out.raw_response = http_res
-                raise out
             else:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code == 422:
@@ -253,7 +191,7 @@ class Burger:
         
         url = utils.generate_url(operations.UpdateBurgerRequest, base_url, '/burger/{burger_id}', request)
         headers = {}
-        req_content_type, data, form = utils.serialize_request_body(request, "burger_update", False, False, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.UpdateBurgerRequest, "burger_update", False, False, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:
@@ -285,6 +223,68 @@ class Burger:
             if utils.match_content_type(content_type, 'application/json'):
                 out = utils.unmarshal_json(http_res.text, Optional[components.BurgerOutput])
                 res.burger_output = out
+            else:
+                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code == 404:
+            if utils.match_content_type(content_type, 'application/json'):
+                out = utils.unmarshal_json(http_res.text, errors.ResponseMessage)
+                out.raw_response = http_res
+                raise out
+            else:
+                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code == 422:
+            if utils.match_content_type(content_type, 'application/json'):
+                out = utils.unmarshal_json(http_res.text, errors.HTTPValidationError)
+                out.raw_response = http_res
+                raise out
+            else:
+                raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
+        elif http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
+            raise errors.SDKError('API error occurred', http_res.status_code, http_res.text, http_res)
+
+        return res
+
+    
+    
+    def delete_burger(self, burger_id: int, retries: Optional[utils.RetryConfig] = None) -> operations.DeleteBurgerResponse:
+        r"""Delete Burger
+        Delete a burger
+        """
+        request = operations.DeleteBurgerRequest(
+            burger_id=burger_id,
+        )
+        
+        base_url = utils.template_url(*self.sdk_configuration.get_server_details())
+        
+        url = utils.generate_url(operations.DeleteBurgerRequest, base_url, '/burger/{burger_id}', request)
+        headers = {}
+        headers['Accept'] = 'application/json'
+        headers['user-agent'] = self.sdk_configuration.user_agent
+        
+        client = self.sdk_configuration.client
+        
+        global_retry_config = self.sdk_configuration.retry_config
+        retry_config = retries
+        if retry_config is None:
+            if global_retry_config:
+                retry_config = global_retry_config
+            else:
+                retry_config = utils.RetryConfig('backoff', utils.BackoffStrategy(500, 60000, 1.5, 3600000), True)
+
+        def do_request():
+            return client.request('DELETE', url, headers=headers)
+
+        http_res = utils.retry(do_request, utils.Retries(retry_config, [
+            '5XX'
+        ]))
+        content_type = http_res.headers.get('Content-Type')
+        
+        res = operations.DeleteBurgerResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
+        
+        if http_res.status_code == 200:
+            if utils.match_content_type(content_type, 'application/json'):
+                out = utils.unmarshal_json(http_res.text, Optional[errors.ResponseMessage])
+                res.response_message = out
             else:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code == 404:

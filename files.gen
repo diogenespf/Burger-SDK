@@ -12,9 +12,9 @@ src/apitizing_burgers/models/errors/sdkerror.py
 tests/helpers.py
 src/apitizing_burgers/models/operations/listburgers.py
 src/apitizing_burgers/models/operations/createburger.py
-src/apitizing_burgers/models/operations/deleteburger.py
 src/apitizing_burgers/models/operations/readburger.py
 src/apitizing_burgers/models/operations/updateburger.py
+src/apitizing_burgers/models/operations/deleteburger.py
 src/apitizing_burgers/models/operations/listorders.py
 src/apitizing_burgers/models/operations/createorder.py
 src/apitizing_burgers/models/operations/readorder.py
@@ -36,12 +36,12 @@ src/apitizing_burgers/models/components/__init__.py
 src/apitizing_burgers/models/webhooks/__init__.py
 docs/models/operations/listburgersresponse.md
 docs/models/operations/createburgerresponse.md
-docs/models/operations/deleteburgerrequest.md
-docs/models/operations/deleteburgerresponse.md
 docs/models/operations/readburgerrequest.md
 docs/models/operations/readburgerresponse.md
 docs/models/operations/updateburgerrequest.md
 docs/models/operations/updateburgerresponse.md
+docs/models/operations/deleteburgerrequest.md
+docs/models/operations/deleteburgerresponse.md
 docs/models/operations/listordersresponse.md
 docs/models/operations/createorderresponse.md
 docs/models/operations/readorderrequest.md

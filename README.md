@@ -48,9 +48,9 @@ if res.response_listburgers is not None:
 
 * [list_burgers](docs/sdks/burger/README.md#list_burgers) - List Burgers
 * [create_burger](docs/sdks/burger/README.md#create_burger) - Create Burger
-* [delete_burger](docs/sdks/burger/README.md#delete_burger) - Delete Burger
 * [read_burger](docs/sdks/burger/README.md#read_burger) - Read Burger
 * [update_burger](docs/sdks/burger/README.md#update_burger) - Update Burger
+* [delete_burger](docs/sdks/burger/README.md#delete_burger) - Delete Burger
 
 ### [order](docs/sdks/order/README.md)
 
