@@ -22,15 +22,15 @@ class OrderStatus(str, Enum):
 @dataclasses.dataclass
 class OrderOutput:
     r"""An order to be returned"""
-    burger_ids: List[int] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('burger_ids') }})
-    r"""List of burger ids in the order"""
     id: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id') }})
     r"""The id of the order"""
-    status: OrderStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
-    table: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('table') }})
-    r"""Table number for the order"""
+    burger_ids: List[int] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('burger_ids') }})
+    r"""List of burger ids in the order"""
     time: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('time'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse }})
     r"""Time of the order"""
+    table: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('table') }})
+    r"""Table number for the order"""
+    status: OrderStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     note: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('note'), 'exclude': lambda f: f is None }})
     r"""Note for the order"""
     
