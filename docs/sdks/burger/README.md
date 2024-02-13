@@ -100,7 +100,6 @@ Read a burger
 
 ```python
 import apitizing_burgers
-from apitizing_burgers.models import operations
 
 s = apitizing_burgers.APItizingBurgers()
 
@@ -139,7 +138,7 @@ Update a burger
 
 ```python
 import apitizing_burgers
-from apitizing_burgers.models import components, operations
+from apitizing_burgers.models import components
 
 s = apitizing_burgers.APItizingBurgers()
 
@@ -182,7 +181,6 @@ Delete a burger
 
 ```python
 import apitizing_burgers
-from apitizing_burgers.models import operations
 
 s = apitizing_burgers.APItizingBurgers()
 

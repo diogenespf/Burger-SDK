@@ -4,7 +4,7 @@ management:
   docChecksum: 763cea21adbc8c039521891d9c2519a0
   docVersion: 0.1.0
   speakeasyVersion: internal
-  generationVersion: 2.250.12
+  generationVersion: 2.253.0
   releaseVersion: 0.4.0
   configChecksum: a323638780cfe75b421a033ba9ac4750
   repoURL: https://github.com/diogenespf/Burger-SDK.git

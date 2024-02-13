@@ -113,7 +113,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 ```python
 import apitizing_burgers
-from apitizing_burgers.models import components
+from apitizing_burgers.models import components, errors
 
 s = apitizing_burgers.APItizingBurgers()
 
@@ -126,10 +126,10 @@ res = None
 try:
     res = s.burger.create_burger(req)
 except errors.HTTPValidationError as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 except errors.SDKError as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 
 if res.burger_output is not None:
