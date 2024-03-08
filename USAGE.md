@@ -10,5 +10,6 @@ res = s.burger.list_burgers()
 if res.response_listburgers is not None:
     # handle response
     pass
+
 ```
 <!-- End SDK Example Usage [usage] -->

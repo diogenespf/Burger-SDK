@@ -29,6 +29,7 @@ res = s.order.list_orders()
 if res.response_listorders is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -73,6 +74,7 @@ res = s.order.create_order(req)
 if res.order_output is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -110,6 +112,7 @@ res = s.order.read_order(order_id=816257)
 if res.order_output is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -157,6 +160,7 @@ res = s.order.update_order(order_id=928345, order_update=components.OrderUpdate(
 if res.order_output is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters

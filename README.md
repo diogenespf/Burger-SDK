@@ -38,6 +38,7 @@ res = s.burger.list_burgers()
 if res.response_listburgers is not None:
     # handle response
     pass
+
 ```
 <!-- End SDK Example Usage [usage] -->
 
@@ -79,6 +80,7 @@ res = s.burger.list_burgers(,
 if res.response_listburgers is not None:
     # handle response
     pass
+
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
@@ -96,6 +98,7 @@ res = s.burger.list_burgers()
 if res.response_listburgers is not None:
     # handle response
     pass
+
 ```
 <!-- End Retries [retries] -->
 
@@ -135,6 +138,7 @@ except errors.SDKError as e:
 if res.burger_output is not None:
     # handle response
     pass
+
 ```
 <!-- End Error Handling [errors] -->
 
@@ -164,6 +168,7 @@ res = s.burger.list_burgers()
 if res.response_listburgers is not None:
     # handle response
     pass
+
 ```
 
 
@@ -183,6 +188,7 @@ res = s.burger.list_burgers()
 if res.response_listburgers is not None:
     # handle response
     pass
+
 ```
 <!-- End Server Selection [server] -->
 

@@ -32,6 +32,7 @@ res = s.burger.list_burgers()
 if res.response_listburgers is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -72,6 +73,7 @@ res = s.burger.create_burger(req)
 if res.burger_output is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -109,6 +111,7 @@ res = s.burger.read_burger(burger_id=102880)
 if res.burger_output is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -151,6 +154,7 @@ res = s.burger.update_burger(burger_id=566190, burger_update=components.BurgerUp
 if res.burger_output is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -190,6 +194,7 @@ res = s.burger.delete_burger(burger_id=199926)
 if res.response_message is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters

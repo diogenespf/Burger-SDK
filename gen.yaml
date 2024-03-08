@@ -11,7 +11,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 python:
-  version: 0.5.0
+  version: 0.6.0
   additionalDependencies:
     dependencies: {}
     extraDependencies:
@@ -32,3 +32,4 @@ python:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: APItizing-Burgers
+  responseFormat: envelope
