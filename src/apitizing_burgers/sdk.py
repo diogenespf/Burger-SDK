@@ -6,7 +6,7 @@ from .order import Order
 from .sdkconfiguration import SDKConfiguration
 from apitizing_burgers import utils
 from apitizing_burgers._hooks import SDKHooks
-from typing import Dict
+from typing import Dict, Optional
 
 class APItizingBurgers:
     r"""APItizing Burgers API: A simple API to manage burgers and orders
@@ -22,14 +22,14 @@ class APItizingBurgers:
     sdk_configuration: SDKConfiguration
 
     def __init__(self,
-                 server_idx: int = None,
-                 server_url: str = None,
-                 url_params: Dict[str, str] = None,
-                 client: requests_http.Session = None,
-                 retry_config: utils.RetryConfig = None
+                 server_idx: Optional[int] = None,
+                 server_url: Optional[str] = None,
+                 url_params: Optional[Dict[str, str]] = None,
+                 client: Optional[requests_http.Session] = None,
+                 retry_config: Optional[utils.RetryConfig] = None
                  ) -> None:
         """Instantiates the SDK configuring it with the provided parameters.
-        
+
         :param server_idx: The index of the server to use for all operations
         :type server_idx: int
         :param server_url: The server URL to use for all operations
@@ -43,12 +43,17 @@ class APItizingBurgers:
         """
         if client is None:
             client = requests_http.Session()
-        
+
         if server_url is not None:
             if url_params is not None:
                 server_url = utils.template_url(server_url, url_params)
 
-        self.sdk_configuration = SDKConfiguration(client, None, server_url, server_idx, retry_config=retry_config)
+        self.sdk_configuration = SDKConfiguration(
+            client,
+            server_url,
+            server_idx,
+            retry_config=retry_config
+        )
 
         hooks = SDKHooks()
 
@@ -58,11 +63,11 @@ class APItizingBurgers:
             self.sdk_configuration.server_url = server_url
 
         # pylint: disable=protected-access
-        self.sdk_configuration._hooks=hooks
-       
+        self.sdk_configuration._hooks = hooks
+
         self._init_sdks()
-    
+
+
     def _init_sdks(self):
         self.burger = Burger(self.sdk_configuration)
         self.order = Order(self.sdk_configuration)
-    
