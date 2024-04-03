@@ -46,7 +46,7 @@ if res.response_listorders is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4x-5xx          | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## create_order
 
@@ -93,7 +93,7 @@ if res.order_output is not None:
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4x-5xx                     | */*                        |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 ## read_order
 
@@ -132,7 +132,7 @@ if res.order_output is not None:
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.ResponseMessage     | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4x-5xx                     | */*                        |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 ## update_order
 
@@ -181,4 +181,4 @@ if res.order_output is not None:
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.ResponseMessage     | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4x-5xx                     | */*                        |
+| errors.SDKError            | 4xx-5xx                    | */*                        |

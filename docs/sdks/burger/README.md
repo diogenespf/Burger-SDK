@@ -49,7 +49,7 @@ if res.response_listburgers is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4x-5xx          | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## create_burger
 
@@ -92,7 +92,7 @@ if res.burger_output is not None:
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4x-5xx                     | */*                        |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 ## read_burger
 
@@ -131,7 +131,7 @@ if res.burger_output is not None:
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.ResponseMessage     | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4x-5xx                     | */*                        |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 ## update_burger
 
@@ -175,7 +175,7 @@ if res.burger_output is not None:
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.ResponseMessage     | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4x-5xx                     | */*                        |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 ## delete_burger
 
@@ -214,4 +214,4 @@ if res.response_message is not None:
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.ResponseMessage     | 404                        | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4x-5xx                     | */*                        |
+| errors.SDKError            | 4xx-5xx                    | */*                        |

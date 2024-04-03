@@ -6,7 +6,7 @@ from ._hooks import SDKHooks
 from .utils import utils
 from .utils.retries import RetryConfig
 from dataclasses import dataclass
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 
 
 SERVERS = [
@@ -18,18 +18,18 @@ SERVERS = [
 @dataclass
 class SDKConfiguration:
     client: requests_http.Session
-    server_url: str = ''
-    server_idx: int = 0
+    server_url: Optional[str] = ''
+    server_idx: Optional[int] = 0
     language: str = 'python'
     openapi_doc_version: str = '0.1.0'
-    sdk_version: str = '0.6.2'
-    gen_version: str = '2.291.0'
-    user_agent: str = 'speakeasy-sdk/python 0.6.2 2.291.0 0.1.0 APItizing-Burgers'
-    retry_config: RetryConfig = None
-    _hooks: SDKHooks = None
+    sdk_version: str = '0.7.0'
+    gen_version: str = '2.298.0'
+    user_agent: str = 'speakeasy-sdk/python 0.7.0 2.298.0 0.1.0 APItizing-Burgers'
+    retry_config: Optional[RetryConfig] = None
+    _hooks: Optional[SDKHooks] = None
 
     def get_server_details(self) -> Tuple[str, Dict[str, str]]:
-        if self.server_url:
+        if self.server_url is not None and self.server_url != '':
             return utils.remove_suffix(self.server_url, '/'), {}
         if self.server_idx is None:
             self.server_idx = 0
