@@ -3,17 +3,17 @@ id: e060d448-f368-4c43-9502-191df189e131
 management:
   docChecksum: 763cea21adbc8c039521891d9c2519a0
   docVersion: 0.1.0
-  speakeasyVersion: 1.241.0
-  generationVersion: 2.300.0
-  releaseVersion: 0.7.2
-  configChecksum: 3b2f5078130e8ced74385f9e32f887d1
+  speakeasyVersion: 1.244.0
+  generationVersion: 2.301.0
+  releaseVersion: 0.7.3
+  configChecksum: 6b9d1a74b61cfe0ffd1b03c29f1396cd
   repoURL: https://github.com/diogenespf/Burger-SDK.git
   repoSubDirectory: .
   installationURL: https://github.com/diogenespf/Burger-SDK.git
 features:
   python:
     constsAndDefaults: 0.1.3
-    core: 4.6.3
+    core: 4.6.4
     flattening: 2.81.1
     globalServerURLs: 2.82.2
     responseFormat: 0.1.0

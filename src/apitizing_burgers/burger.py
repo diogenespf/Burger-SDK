@@ -179,7 +179,7 @@ class Burger:
         
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
-        url = utils.generate_url(operations.ReadBurgerRequest, base_url, '/burger/{burger_id}', request)
+        url = utils.generate_url(base_url, '/burger/{burger_id}', request)
         
         headers = {}
         
@@ -267,7 +267,7 @@ class Burger:
         
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
-        url = utils.generate_url(operations.UpdateBurgerRequest, base_url, '/burger/{burger_id}', request)
+        url = utils.generate_url(base_url, '/burger/{burger_id}', request)
         
         headers = {}
         
@@ -359,7 +359,7 @@ class Burger:
         
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
-        url = utils.generate_url(operations.DeleteBurgerRequest, base_url, '/burger/{burger_id}', request)
+        url = utils.generate_url(base_url, '/burger/{burger_id}', request)
         
         headers = {}
         

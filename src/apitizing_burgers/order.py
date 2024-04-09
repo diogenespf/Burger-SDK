@@ -177,7 +177,7 @@ class Order:
         
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
-        url = utils.generate_url(operations.ReadOrderRequest, base_url, '/order/{order_id}', request)
+        url = utils.generate_url(base_url, '/order/{order_id}', request)
         
         headers = {}
         
@@ -265,7 +265,7 @@ class Order:
         
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
-        url = utils.generate_url(operations.UpdateOrderRequest, base_url, '/order/{order_id}', request)
+        url = utils.generate_url(base_url, '/order/{order_id}', request)
         
         headers = {}
         
