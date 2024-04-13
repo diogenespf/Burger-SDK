@@ -89,7 +89,7 @@ import apitizing_burgers
 from apitizing_burgers.utils import BackoffStrategy, RetryConfig
 
 s = apitizing_burgers.APItizingBurgers(
-    retry_config=RetryConfig('backoff', BackoffStrategy(1, 50, 1.1, 100), False)
+    retry_config=RetryConfig('backoff', BackoffStrategy(1, 50, 1.1, 100), False),
 )
 
 
