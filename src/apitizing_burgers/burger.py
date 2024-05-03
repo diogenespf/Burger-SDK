@@ -49,9 +49,10 @@ class Burger:
                 req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
                 http_res = client.send(req)
             except Exception as e:
-                _, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
-                if e is not None:
-                    raise e
+                _, err = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
+                if err is not None:
+                    raise err from e
+                raise e
 
             if utils.match_status_codes(['4XX','5XX'], http_res.status_code):
                 result, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), http_res, None)
@@ -59,6 +60,8 @@ class Burger:
                     raise e
                 if result is not None:
                     http_res = result
+                else:
+                    raise errors.SDKError('Unexpected error occurred', -1, '', None)
             else:
                 http_res = self.sdk_configuration.get_hooks().after_success(AfterSuccessContext(hook_ctx), http_res)
 
@@ -123,9 +126,10 @@ class Burger:
                 req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
                 http_res = client.send(req)
             except Exception as e:
-                _, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
-                if e is not None:
-                    raise e
+                _, err = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
+                if err is not None:
+                    raise err from e
+                raise e
 
             if utils.match_status_codes(['422','4XX','5XX'], http_res.status_code):
                 result, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), http_res, None)
@@ -133,6 +137,8 @@ class Burger:
                     raise e
                 if result is not None:
                     http_res = result
+                else:
+                    raise errors.SDKError('Unexpected error occurred', -1, '', None)
             else:
                 http_res = self.sdk_configuration.get_hooks().after_success(AfterSuccessContext(hook_ctx), http_res)
 
@@ -203,9 +209,10 @@ class Burger:
                 req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
                 http_res = client.send(req)
             except Exception as e:
-                _, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
-                if e is not None:
-                    raise e
+                _, err = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
+                if err is not None:
+                    raise err from e
+                raise e
 
             if utils.match_status_codes(['404','422','4XX','5XX'], http_res.status_code):
                 result, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), http_res, None)
@@ -213,6 +220,8 @@ class Burger:
                     raise e
                 if result is not None:
                     http_res = result
+                else:
+                    raise errors.SDKError('Unexpected error occurred', -1, '', None)
             else:
                 http_res = self.sdk_configuration.get_hooks().after_success(AfterSuccessContext(hook_ctx), http_res)
 
@@ -296,9 +305,10 @@ class Burger:
                 req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
                 http_res = client.send(req)
             except Exception as e:
-                _, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
-                if e is not None:
-                    raise e
+                _, err = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
+                if err is not None:
+                    raise err from e
+                raise e
 
             if utils.match_status_codes(['404','422','4XX','5XX'], http_res.status_code):
                 result, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), http_res, None)
@@ -306,6 +316,8 @@ class Burger:
                     raise e
                 if result is not None:
                     http_res = result
+                else:
+                    raise errors.SDKError('Unexpected error occurred', -1, '', None)
             else:
                 http_res = self.sdk_configuration.get_hooks().after_success(AfterSuccessContext(hook_ctx), http_res)
 
@@ -383,9 +395,10 @@ class Burger:
                 req = self.sdk_configuration.get_hooks().before_request(BeforeRequestContext(hook_ctx), req)
                 http_res = client.send(req)
             except Exception as e:
-                _, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
-                if e is not None:
-                    raise e
+                _, err = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), None, e)
+                if err is not None:
+                    raise err from e
+                raise e
 
             if utils.match_status_codes(['404','422','4XX','5XX'], http_res.status_code):
                 result, e = self.sdk_configuration.get_hooks().after_error(AfterErrorContext(hook_ctx), http_res, None)
@@ -393,6 +406,8 @@ class Burger:
                     raise e
                 if result is not None:
                     http_res = result
+                else:
+                    raise errors.SDKError('Unexpected error occurred', -1, '', None)
             else:
                 http_res = self.sdk_configuration.get_hooks().after_success(AfterSuccessContext(hook_ctx), http_res)
 
