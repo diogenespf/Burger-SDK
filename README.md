@@ -32,7 +32,6 @@ import apitizing_burgers
 
 s = apitizing_burgers.APItizingBurgers()
 
-
 res = s.burger.list_burgers()
 
 if res.response_listburgers is not None:
@@ -73,7 +72,6 @@ from apitizing_burgers.utils import BackoffStrategy, RetryConfig
 
 s = apitizing_burgers.APItizingBurgers()
 
-
 res = s.burger.list_burgers(,
     RetryConfig('backoff', BackoffStrategy(1, 50, 1.1, 100), False))
 
@@ -91,7 +89,6 @@ from apitizing_burgers.utils import BackoffStrategy, RetryConfig
 s = apitizing_burgers.APItizingBurgers(
     retry_config=RetryConfig('backoff', BackoffStrategy(1, 50, 1.1, 100), False),
 )
-
 
 res = s.burger.list_burgers()
 
@@ -120,14 +117,12 @@ from apitizing_burgers.models import components, errors
 
 s = apitizing_burgers.APItizingBurgers()
 
-req = components.BurgerCreate(
-    name='Cheeseburger',
-    description='Veggie burger with avocado',
-)
-
 res = None
 try:
-    res = s.burger.create_burger(req)
+    res = s.burger.create_burger(request=components.BurgerCreate(
+    name='Cheeseburger',
+    description='Veggie burger with avocado',
+))
 except errors.HTTPValidationError as e:
     # handle exception
     raise(e)
@@ -162,7 +157,6 @@ s = apitizing_burgers.APItizingBurgers(
     server_idx=0,
 )
 
-
 res = s.burger.list_burgers()
 
 if res.response_listburgers is not None:
@@ -181,7 +175,6 @@ import apitizing_burgers
 s = apitizing_burgers.APItizingBurgers(
     server_url="http://127.0.0.1:8000/",
 )
-
 
 res = s.burger.list_burgers()
 

@@ -26,7 +26,6 @@ import apitizing_burgers
 
 s = apitizing_burgers.APItizingBurgers()
 
-
 res = s.burger.list_burgers()
 
 if res.response_listburgers is not None:
@@ -63,12 +62,10 @@ from apitizing_burgers.models import components
 
 s = apitizing_burgers.APItizingBurgers()
 
-req = components.BurgerCreate(
+res = s.burger.create_burger(request=components.BurgerCreate(
     name='Cheeseburger',
     description='Veggie burger with avocado',
-)
-
-res = s.burger.create_burger(req)
+))
 
 if res.burger_output is not None:
     # handle response
@@ -104,7 +101,6 @@ Read a burger
 import apitizing_burgers
 
 s = apitizing_burgers.APItizingBurgers()
-
 
 res = s.burger.read_burger(burger_id=102880)
 
@@ -144,7 +140,6 @@ import apitizing_burgers
 from apitizing_burgers.models import components
 
 s = apitizing_burgers.APItizingBurgers()
-
 
 res = s.burger.update_burger(burger_id=566190, burger_update=components.BurgerUpdate(
     name='Hamburger',
@@ -187,7 +182,6 @@ Delete a burger
 import apitizing_burgers
 
 s = apitizing_burgers.APItizingBurgers()
-
 
 res = s.burger.delete_burger(burger_id=199926)
 

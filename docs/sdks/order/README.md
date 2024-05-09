@@ -23,7 +23,6 @@ import apitizing_burgers
 
 s = apitizing_burgers.APItizingBurgers()
 
-
 res = s.order.list_orders()
 
 if res.response_listorders is not None:
@@ -60,16 +59,14 @@ from apitizing_burgers.models import components
 
 s = apitizing_burgers.APItizingBurgers()
 
-req = components.OrderCreate(
+res = s.order.create_order(request=components.OrderCreate(
     burger_ids=[
         1,
         3,
     ],
     table=1,
     note='No onions',
-)
-
-res = s.order.create_order(req)
+))
 
 if res.order_output is not None:
     # handle response
@@ -105,7 +102,6 @@ Read an order
 import apitizing_burgers
 
 s = apitizing_burgers.APItizingBurgers()
-
 
 res = s.order.read_order(order_id=816257)
 
@@ -145,7 +141,6 @@ import apitizing_burgers
 from apitizing_burgers.models import components
 
 s = apitizing_burgers.APItizingBurgers()
-
 
 res = s.order.update_order(order_id=928345, order_update=components.OrderUpdate(
     burger_ids=[
