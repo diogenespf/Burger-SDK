@@ -7,6 +7,7 @@ from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import List, Optional
 
+
 class OrderUpdateOrderStatus(str, Enum):
     r"""Status of the order"""
     CREATED = 'CREATED'
