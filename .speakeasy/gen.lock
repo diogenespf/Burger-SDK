@@ -3,10 +3,10 @@ id: e060d448-f368-4c43-9502-191df189e131
 management:
   docChecksum: 763cea21adbc8c039521891d9c2519a0
   docVersion: 0.1.0
-  speakeasyVersion: 1.295.1
-  generationVersion: 2.335.5
-  releaseVersion: 0.8.2
-  configChecksum: 66a51c02d6736a90bca76d4129cd00cb
+  speakeasyVersion: 1.305.0
+  generationVersion: 2.340.3
+  releaseVersion: 0.8.3
+  configChecksum: ceffc1e71a11e0bcb879909974b9500c
   repoURL: https://github.com/diogenespf/Burger-SDK.git
   repoSubDirectory: .
   installationURL: https://github.com/diogenespf/Burger-SDK.git
@@ -14,14 +14,14 @@ features:
   python:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.3
-    core: 4.6.8
+    core: 4.6.9
     flattening: 2.81.1
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     responseFormat: 0.1.0
     retries: 2.82.2
     sdkHooks: 0.1.0
-    unions: 2.82.7
+    unions: 2.82.8
     webhooks: 1.0.0
 generatedFiles:
   - src/apitizing_burgers/sdkconfiguration.py
